@@ -5,7 +5,7 @@ import android.graphics.Canvas
 /**
  * То, что мы можем нарисовать
  */
-interface Renderable {
+interface Renderable: ZOrdered {
     /**
      * Рисует объект на данной канве.
      */
