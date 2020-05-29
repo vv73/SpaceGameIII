@@ -10,7 +10,7 @@ import study.android.spacegame.framework.Vector
 /**
  * Всякие взрывы!
  */
-class Explosion(val particle: Bitmap, from: Asteroid, val gameView: GameView )
+class Explosion(val particle: Bitmap, from: Asteroid, val gameView: GameView)
                                                : Updatable, Renderable {
 
     companion object {

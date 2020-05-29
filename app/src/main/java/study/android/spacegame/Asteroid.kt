@@ -10,7 +10,7 @@ import study.android.spacegame.framework.*
 /**
  * Это наши астероиды.
  */
-class Asteroid (val image: Bitmap, val gameView: GameView): Touchable, Renderable, Updatable{
+class Asteroid (val image: Bitmap, val gameView: GameView, val activity:MainActivity): Touchable, Renderable, Updatable{
 
     // Текущая координата
    var coord: Vector
@@ -51,9 +51,9 @@ class Asteroid (val image: Bitmap, val gameView: GameView): Touchable, Renderabl
             gameView.removeObject(this);
             //и добавляем взрыв
             gameView.addObject(
-                Explosion(
-                    gameView.getBitmap(R.drawable.explosion1), this, gameView)
-            )
+                Explosion(gameView.getBitmap(R.drawable.explosion1), this, gameView))
+                //добавляем 10 очков
+                activity.addScore(10)
             return true
         }
         return false;
@@ -79,6 +79,7 @@ class Asteroid (val image: Bitmap, val gameView: GameView): Touchable, Renderabl
             gameView.addObject(
                 Explosion(gameView.getBitmap(R.drawable.explosion2), this, gameView)
             );
+            activity.damage()
         }
     }
     override fun render(canvas: Canvas) {
